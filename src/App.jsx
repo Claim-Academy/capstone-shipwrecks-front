@@ -20,7 +20,7 @@ function App() {
       {/* Need braces around JS code in JSX */}
       {data.map((shipwreck) => {
         return (
-          <li key={shipwreck.id}>
+          <li key={shipwreck._id}>
             {shipwreck.latdec}, {shipwreck.londec}
           </li>
         );
