@@ -38,8 +38,8 @@ function App() {
       />
       {data && (
         <MapContainer
-          center={[-78.8790131, 9.5574865]}
-          zoom={3}
+          center={[0, 0]}
+          zoom={2}
           scrollWheelZoom={false}
           style={{
             height: "100vh",
