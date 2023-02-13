@@ -1,3 +1,4 @@
+import { Button } from "@mui/material";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import Select from "@mui/material/Select";
@@ -24,20 +25,26 @@ function App() {
   }, []);
 
   return (
-    <Select
-      onChange={(event) => {
-        setSelectedShipwreckType(event.target.value);
-      }}
-      label="Shipwreck Type"
-      labelId="shipwreck-type-label"
-      id="shipwreck-type"
-      value={selectedShipwreckType}
-    >
-      <InputLabel id="shipwreck-type">Shipwreck Type</InputLabel>
-      <MenuItem value="Wrecks - Submerged, dangerous">Submerged</MenuItem>
-      <MenuItem value="Wrecks - Not Visible">Not Visible</MenuItem>
-      <MenuItem value="Wrecks - Submerged, nondangerous">Dangerous</MenuItem>
-    </Select>
+    <form className="flex flex-col gap-y-4 px-4 pt-4">
+      <Select
+        onChange={(event) => {
+          setSelectedShipwreckType(event.target.value);
+        }}
+        label="Shipwreck Type"
+        labelId="shipwreck-type-label"
+        id="shipwreck-type"
+        value={selectedShipwreckType}
+      >
+        <InputLabel id="shipwreck-type">Shipwreck Type</InputLabel>
+        <MenuItem value="Wrecks - Submerged, dangerous">Submerged</MenuItem>
+        <MenuItem value="Wrecks - Not Visible">Not Visible</MenuItem>
+        <MenuItem value="Wrecks - Submerged, nondangerous">Dangerous</MenuItem>
+      </Select>
+
+      <Button type="submit" variant="contained">
+        Submit
+      </Button>
+    </form>
   );
 }
 
