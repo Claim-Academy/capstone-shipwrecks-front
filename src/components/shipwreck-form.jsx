@@ -17,8 +17,8 @@ export default function ShipwreckForm({ value, setValue }) {
         value={value}
       >
         <InputLabel id="shipwreck-type">Shipwreck Type</InputLabel>
+        <MenuItem value="Wrecks - Visible">Visible</MenuItem>
         <MenuItem value="Wrecks - Submerged, dangerous">Submerged</MenuItem>
-        <MenuItem value="Wrecks - Not Visible">Not Visible</MenuItem>
         <MenuItem value="Wrecks - Submerged, nondangerous">Dangerous</MenuItem>
       </Select>
 

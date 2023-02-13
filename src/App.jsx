@@ -6,6 +6,20 @@ import ShipwreckForm from "./components/shipwreck-form";
 import marker from "./pindrop.svg";
 import { shipwrecksApi } from "./services";
 
+const renderMarkers = ({ data, selectedShipwreckType, icon }) => {
+  return data
+    .filter((shipwreck) => shipwreck.feature_type === selectedShipwreckType)
+    .map((shipwreck) => {
+      return (
+        <Marker
+          key={shipwreck._id}
+          position={[shipwreck.latdec, shipwreck.londec]}
+          icon={icon}
+        ></Marker>
+      );
+    });
+};
+
 function App() {
   const [data, setData] = useState(null);
 
@@ -49,11 +63,7 @@ function App() {
             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           />
-          <Marker
-            position={[data[0].latdec, data[0].londec]}
-            icon={icon}
-            sx={{ fill: "red", stroke: "red", strokeWidth: 2, color: "red" }}
-          ></Marker>
+          {renderMarkers({ data, selectedShipwreckType, icon })}
         </MapContainer>
       )}
     </main>
